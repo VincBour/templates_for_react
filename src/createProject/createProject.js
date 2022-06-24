@@ -3,21 +3,24 @@ import { checkTemplateFolder } from "../checkTemplateFolder/checkTemplateFolder.
 import { copyTemplate } from "../copyTemplate/copyTemplate.js";
 import Listr from "listr";
 
-export async function createProject(options) {
+export function createProject(options) {
     const tasks = new Listr([
         {
             title: 'Check Template Directory',
-            task: () => checkTemplateFolder(options),
+            task: async () => await checkTemplateFolder(options),
         },
         {
             title: 'Check Target Directory',
-            task: () => checkTargetDirectory(options)
+            task: async () => await checkTargetDirectory(options)
         },
         {
             title: 'Copy Template',
-            task: () => copyTemplate(options)
+            task: () => copyTemplate(options),
         }
     ])
     ;
-    await tasks.run();
+    const result = tasks.run().catch(err => {
+        console.error(err);
+    });
+    console.log('create project',result)
   }

@@ -15,14 +15,14 @@ export async function promptForMissingOptions(options) {
     questions.push({
       type: "list",
       name: "template",
-      message: "Please choose which project template to use",
-      choices: ["Component", "ComponentStories", "Function", "Hook"],
+      message: "Please choose which template to use",
+      choices: ["Component", "ComponentStories", "Function", "Hook", "Machine"],
       default: defaultTemplate,
     });
   }
   if (!options.name) {
     questions.push({
-      type: "string",
+      type: "input",
       name: "name",
       message: "Please write a name",
       default: "MyComponent",
@@ -30,10 +30,10 @@ export async function promptForMissingOptions(options) {
   }
   if (!options.name) {
     questions.push({
-      type: "string",
+      type: "input",
       name: "target",
       message: "Please write a target path",
-      default: "src/",
+      default: "src",
     });
   }
 

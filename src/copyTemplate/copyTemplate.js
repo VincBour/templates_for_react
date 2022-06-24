@@ -1,29 +1,32 @@
 import ncp from "ncp";
-import { promisify } from "util";
-import fs from "fs";
-import path from 'path';
+import { Transform } from "stream";
 
-const copy = promisify(ncp);
+const copy = ncp;
 
-function replace(value, target) {
-  return value.replace(new RegExp("\\[Name]", "g"), target);
+function capitalizeFirstLetter(string) {
+  return string.charAt(0).toUpperCase() + string.slice(1);
 }
 
-export async function copyTemplate(options) {
-  await copy(options.templateDirectory, options.targetDirectory, {
-    transform: function (read, write, file) {
-      fs.readFile(read.path, "utf8", (err, data) => {
-        if (err) {
-          console.error(err);
-          return;
-        }
-        const result = replace(data, options.name);
 
-        write.write(result, "utf8");
+function replace(value, target) {
+  const targetUp = capitalizeFirstLetter(target);
+  return value.replace(new RegExp("\\[Name]", "g"), target).replace(new RegExp("\\[UpName]", "g"), targetUp);
+}
+
+export function copyTemplate(options) {
+  copy(options.templateDirectory, options.targetDirectory, {
+    transform: function (read, write) {
+      const replaceData = new Transform({
+        transform(chunk, encoding, cb) {
+          this.push(replace(chunk.toString(), options.name))
+        }
       });
+      read.pipe(replaceData).pipe(write);
     },
     rename: function (target) {
       return replace(target, options.name);
-    },
+    }
+  }, (errors) => {
+    errors?.forEach(err => console.log(err))
   });
 }
