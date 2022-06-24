@@ -1,17 +1,14 @@
 {
-  "name": "cli",
+  "name": "templates_for_react",
   "version": "1.0.0",
-  "description": "",
+  "description": "With this cli you can create folder based on template, tape cft and choose witch template you want to use, react component, react component with storie, function typescript, react hool or xstate machine in react",
   "main": "src/index.js",
   "type": "module",
   "bin": {
-    "mynewcli": "bin/index.js"
+    "cft": "bin/index.js"
   },
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "author": "",
-  "license": "ISC",
+  "author": "vincent Boursicot",
+  "license": "MIT",
   "dependencies": {
     "arg": "^5.0.1",
     "chalk": "^5.0.1",
@@ -20,5 +17,13 @@
     "inquirer": "^8.2.1",
     "listr": "^0.14.3",
     "ncp": "^2.0.0"
-  }
+  },
+   "repository": {
+    "type": "git",
+    "url": "git+https://github.com/VincBour/templates_for_react.git"
+  },
+  "bugs": {
+    "url": "https://github.com/VincBour/templates_for_react/issues"
+  },
+  "homepage": "https://github.com/VincBour/templates_for_react#readme"
 }

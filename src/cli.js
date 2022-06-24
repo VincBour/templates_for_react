@@ -7,7 +7,7 @@ import figlet from "figlet";
 export async function cli(args) {
   console.log(
     "%s",
-    chalk.blue(figlet.textSync("Templates CLI", { horizontalLayout: "fitted" }))
+    chalk.blue(figlet.textSync("Templates For React", { horizontalLayout: "fitted" }))
   );
   try {
     let options = parseArgumentsIntoOptions(args);
