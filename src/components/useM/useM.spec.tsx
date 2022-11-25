@@ -1,9 +1,9 @@
 import { renderHook } from '@testing-library/react-hooks';
-import { [Name] } from './[Name]';
+import { useM } from './useM';
 
-describe('[Name]', () => {
+describe('useM', () => {
     it('should return 2', () => {
-        const { result } = renderHook(() => [Name]());
+        const { result } = renderHook(() => useM());
         const value = result.current();
         expect(value).toEqual(2);
     });

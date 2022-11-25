@@ -16,7 +16,7 @@ export async function cli(args) {
     console.log("%s template ready", chalk.green.bold("DONE"));
     return true;
   } catch (error) {
-    console.log("Something went wrong !!");
+    console.log("Something went wrong !!", error);
     process.exit(1);
   }
 }

@@ -15,10 +15,11 @@
     "esm": "^3.2.25",
     "figlet": "^1.5.2",
     "inquirer": "^8.2.1",
+    "inquirer-fuzzy-path": "^2.3.0",
     "listr": "^0.14.3",
     "ncp": "^2.0.0"
   },
-   "repository": {
+  "repository": {
     "type": "git",
     "url": "git+https://github.com/VincBour/templates_for_react.git"
   },

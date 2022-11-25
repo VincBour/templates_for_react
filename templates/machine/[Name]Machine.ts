@@ -1,50 +1,53 @@
 import {
-    assign,
-    BaseActionObject,
-    createMachine,
-    InternalMachineOptions,
-    MachineConfig,
-    ResolveTypegenMeta,
-    ServiceMap,
-    TypegenDisabled,
-  } from "xstate";
-  import { assignElapsed } from "./actions";
-  import { pauseGuard } from "./guards";
-  import { timerClock } from './services';
-  import { [UpName]Context, [UpName]Event, [UpName]Schema } from "./types";
+  BaseActionObject,
+  createMachine,
+  InternalMachineOptions,
+  MachineConfig,
+  ResolveTypegenMeta,
+  ServiceMap,
+  TypegenDisabled,
+} from "xstate";
 
-  const initialContext: [Name]Context = {
-    
-  };
-  
-  const [Name]MachineConfig: MachineConfig<[UpName]Context, [UpName]Schema, [UpName]Event> =
-    {
-      id: '[Name]',
-      initial: "",
-      context: initialContext,
-      states: {
-      },
-    };
-  
-  
-  const [Name]MachineOptions: InternalMachineOptions<
-  [UpName]Context,
-  [UpName]Event,
-    ResolveTypegenMeta<TypegenDisabled, [UpName]Event, BaseActionObject, ServiceMap>
-  > = {
-    services: {
-      
-    },
-    actions: {
-      
-    },
-    guards: {
-      
-    },
-  };
-  
-  export const timerMachine = createMachine<[UpName]Context, [UpName]Event>(
+import {
+  [Name]Context,
+  [Name]Schema,
+  [Name]Events
+} from './types';
+
+const [Name]MachineConfig: MachineConfig<[Name]Context, [Name]Schema, [Name]Events> = {
+  id: "[Name]_Machine",
+  initial: "state_1",
+  context: {
+    a: 0,
+    b: 1
+  },
+  states: {
+    state_1: {},
+  },
+};
+
+const [Name]MachineOption: InternalMachineOptions<
+  [Name]Context,
+  [Name]Events,
+  ResolveTypegenMeta<TypegenDisabled, [Name]Events, BaseActionObject, ServiceMap>
+> = {
+  actions: {},
+  delays: {},
+  guards: {},
+  services: {},
+};
+
+export const NameMachine = (context?: [Name]Context) => {
+  if (context) {
+    return createMachine<[Name]Context, [Name]Events>(
+      [Name]MachineConfig,
+      [Name]MachineOption
+    ).withContext(context);
+  }
+  return createMachine<[Name]Context, [Name]Events>(
     [Name]MachineConfig,
-    [Name]MachineOptions
+    [Name]MachineOption
   );
-  
+};
+
+

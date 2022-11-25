@@ -1,5 +1,4 @@
-
-export const [Name] = (a: number, b: number) => {
-    return a +b;
+export const [Name] = () => {
+    return 2;
 };
 

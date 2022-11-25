@@ -1,6 +1,6 @@
 import * as React from "react";
 
-export const [Name] = () => {
+export const useM = () => {
   return () => {
     return 2;
   };

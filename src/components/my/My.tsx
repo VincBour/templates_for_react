@@ -1,6 +1,6 @@
 import * as React from "react";
 
-export const [Name] = () => {
+export const My = () => {
   return () => {
     return 2;
   };
