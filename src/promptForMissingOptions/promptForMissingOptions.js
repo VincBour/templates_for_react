@@ -14,6 +14,11 @@ export async function promptForMissingOptions(options) {
   }
 
   const questions = [{
+    type: "confirm",
+    name: "version",
+    message: "Is your version of react >= 18 ?",
+    default: false
+  },{
     type: "list",
     name: "template",
     message: "Please choose which template to use",
@@ -63,7 +68,8 @@ export async function promptForMissingOptions(options) {
     ...options,
     template: options.template || answers.template,
     name: options.name || answers.name,
-    target: options.target || answers.target
+    target: options.target || answers.target,
+    version: options.version || answers.version
   };
   console.log(result, answers);
   return result;

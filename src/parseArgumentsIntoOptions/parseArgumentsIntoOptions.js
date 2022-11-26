@@ -10,6 +10,7 @@ export function parseArgumentsIntoOptions(rawArgs) {
 		skiPrompt: args['--yes'] || false,
 		template: args._[0],
 		name: args._[1],
-		target: args._[2]
+		target: args._[2],
+		version: args._[3],
 	}
 }

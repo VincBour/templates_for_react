@@ -18,7 +18,13 @@ export function copyTemplate(options) {
     transform: function (read, write) {
       const replaceData = new Transform({
         transform(chunk, encoding, cb) {
-          this.push(replace(chunk.toString(), options.name))
+          let result = replace(chunk.toString(), options.name);
+          if (options.version) {
+            
+            result = result.replace(new RegExp(/import \* as React from 'react';/, "g"), ""); 
+            
+          }
+          this.push(result)
         }
       });
       read.pipe(replaceData).pipe(write);
