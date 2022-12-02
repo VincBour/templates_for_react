@@ -1,4 +1,4 @@
 import { ConditionPredicate } from "xstate";
-import { [Name]Context, [Name]Event } from "../types";
+import { [FCName]Context, [FCName]Event } from "../types";
 
-export const guardsExample: ConditionPredicate<[Name]Context, [Name]Event> = (context: [Name]Context) => context.a > context.b;
+export const guardsExample: ConditionPredicate<[FCName]Context, [FCName]Event> = (context: [FCName]Context) => context.a > context.b;

@@ -1,13 +1,13 @@
 import { useContext } from "react";
-import { [Name] } from "./[Name]Provider";
+import { [FCName] } from "./[FCName]Provider";
 
-const use[Name]Context = () => {
-  const context = useContext([Name]);
+const use[FCName]Context = () => {
+  const context = useContext([FCName]);
 
   // Uncomment if your context doesn't have reasonable defaults
   //   if (context === undefined) {
   //     throw new Error(
-  //       "use[Name]Context must be used within a [Name]Provider"
+  //       "use[FCName]Context must be used within a [FCName]Provider"
   //     );
   //   }
 

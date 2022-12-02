@@ -10,7 +10,7 @@ function capitalizeFirstLetter(string) {
 
 function replace(value, target) {
   const targetUp = capitalizeFirstLetter(target);
-  return value.replace(new RegExp("\\[Name]", "g"), target).replace(new RegExp("\\[UpName]", "g"), targetUp);
+  return value.replace(new RegExp("\\[FCName]", "g"), target).replace(new RegExp("\\[UpName]", "g"), targetUp);
 }
 
 export function copyTemplate(options) {
@@ -20,9 +20,7 @@ export function copyTemplate(options) {
         transform(chunk, encoding, cb) {
           let result = replace(chunk.toString(), options.name);
           if (options.version) {
-            
             result = result.replace(new RegExp(/import \* as React from 'react';/, "g"), ""); 
-            
           }
           this.push(result)
         }
