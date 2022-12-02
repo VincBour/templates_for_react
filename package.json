@@ -7,6 +7,9 @@
   "bin": {
     "cft": "bin/index.js"
   },
+  "script": {
+    "test": "echo \"No test specified\""
+  },
   "author": "vincent Boursicot",
   "license": "MIT",
   "dependencies": {
