@@ -7,7 +7,7 @@
   "bin": {
     "cft": "bin/index.js"
   },
-  "script": {
+  "scripts": {
     "test": "echo \"No test specified\""
   },
   "author": "vincent Boursicot",
