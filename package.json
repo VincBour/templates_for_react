@@ -1,6 +1,6 @@
 {
   "name": "templates-for-react",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "With this cli you can create folder based on template, tape cft and choose witch template you want to use, react component, react component with storie, function typescript, react hool or xstate machine in react",
   "main": "src/index.js",
   "type": "module",
