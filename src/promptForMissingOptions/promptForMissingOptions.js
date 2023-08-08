@@ -22,7 +22,7 @@ export async function promptForMissingOptions(options) {
     type: "list",
     name: "template",
     message: "Please choose which template to use",
-    choices: ["Component", "ComponentWithStorybook", "Context", "Function", "Hook", "StoreZustand", "Machine", "AssignXstate", "GuardXstate", "useMutation", "useQuery"],
+    choices: ["TempComponent","BecComponent","Component", "ComponentWithStorybook", "Context", "Function", "Hook", "StoreZustand", "Machine", "AssignXstate", "GuardXstate", "useMutation", "useQuery"],
     default: defaultTemplate,
     when: () => !options.template
   },
